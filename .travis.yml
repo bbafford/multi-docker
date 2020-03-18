@@ -1,6 +1,6 @@
 sudo: required
 services:
- - docker
+  - docker
 
 before_install:
   - docker build -t bbafford/react-test -f ./client/Dockerfile.dev ./client
@@ -15,11 +15,11 @@ after_success:
   - docker build -t bbafford/multi-worker ./worker
 
 #login to docker cli
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # push images to docker hub
-- docker push bbafford/multi-client 
-- docker push bbafford/multi-nginx 
-- docker push bbafford/multi-server
-- docker push bbafford/multi-worker 
+  - docker push bbafford/multi-client 
+  - docker push bbafford/multi-nginx  
+  - docker push bbafford/multi-server
+  - docker push bbafford/multi-worker 
 
 
