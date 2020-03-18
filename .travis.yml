@@ -1,4 +1,6 @@
+language: generic
 sudo: required
+
 services:
   - docker
 
@@ -6,7 +8,7 @@ before_install:
   - docker build -t bbafford/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run CI=true bbafford/react-test npm test -- --coverage
+  - docker run -e CI=true bbafford/react-test npm test -- --coverage
 
 after_success:
   - docker build -t bbafford/multi-client ./client
