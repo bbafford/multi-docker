@@ -1,3 +1,4 @@
+
 {
   "AWSEBDockerrunVersion":2,
   "containerDefinitions":[
@@ -23,6 +24,8 @@
        "name": "worker",
       "image": "bbafford/multi-worker",
       "hostname": "worker",
+
+
       "essential": false
      },
     {
@@ -32,7 +35,7 @@
       "essential": true,
       "portMappings": [
               {
-              "hostPort":80
+              "hostPort":80,
               "containerPort":80
               }],
        "links": ["client","server"]
