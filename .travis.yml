@@ -22,6 +22,20 @@ after_success:
   - docker push bbafford/multi-client 
   - docker push bbafford/multi-nginx  
   - docker push bbafford/multi-server
-  - docker push bbafford/multi-worker 
+  - docker push bbafford/multi-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucker_name: elasticbeanstalk-us-east-2-838717857137
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+
 
 

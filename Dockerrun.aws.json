@@ -1,0 +1,42 @@
+{
+  "AWSEBDockerrunVersion":2,
+  "containerDefinitions":[
+    {
+      "name": "client",
+      "image": "bbafford/multi-client",
+      "hostname": "client",
+      "essential": false
+     },
+     {
+       "name": "api",
+      "image": "bbafford/multi-server",
+      "hostname": "api",
+      "essential": false
+     },
+     {
+       "name": "worker",
+      "image": "bbafford/multi-worker",
+      "hostname": "worker",
+      "essential": false
+     },
+     {
+       "name": "worker",
+      "image": "bbafford/multi-worker",
+      "hostname": "worker",
+      "essential": false
+     },
+    {
+      "name": "nginx",
+      "image": "bbafford/multi-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+              {
+              "hostPort":80
+              "containerPort":80
+              }],
+       "links": ["client","server"]
+     }
+  ]
+    
+}
